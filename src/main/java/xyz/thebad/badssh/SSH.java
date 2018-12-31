@@ -162,6 +162,18 @@ public class SSH {
 		sftp.put(localPath, remotePath);
 	}
 	
+	public void chmod(String path, int perms) throws IOException {
+		sftp.chmod(path, perms);
+	}
+	
+	public void chown(String path, int userId) throws IOException {
+		sftp.chown(path, userId);
+	}
+	
+	public void chgrp(String path, int groupId) throws IOException {
+		sftp.chgrp(path, groupId);
+	}
+	
 	/**
 	 * Close all connection.
 	 * @throws IOException

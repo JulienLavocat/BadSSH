@@ -10,16 +10,16 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		
 		SSH ssh = new SSH();
-		ssh.connect("localhost");
-		ssh.authenticate("root", "mySuperSecurePassword");
+		ssh.connect("");
+		ssh.authenticate("", "");
 		
 		if(!ssh.isValid()) {
 			throw new Exception("Invalid connection");
 		}
 		
-		System.out.println(ssh.ls("/root"));
+		ssh.exec("touch mod.test");
 		
-		System.out.println(ssh.exec("ls"));
+		ssh.chmod("/root/mod.test", 7777);
 		
 	}
 	
